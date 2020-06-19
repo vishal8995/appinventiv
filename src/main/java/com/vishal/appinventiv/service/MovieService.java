@@ -36,7 +36,7 @@ public class MovieService {
     //Delete movie by ID, returns confirmation message with ID
     public String deleteMovie(int id){
         movieRepository.deleteById(id);
-        return("Movie with the ID: "+id+" Deleted from the List !!");
+        return("Movie with the ID: "+id+" deleted from the List !!");
     }
 
     //Update uses the findById method to fetch the existing record using ID.
