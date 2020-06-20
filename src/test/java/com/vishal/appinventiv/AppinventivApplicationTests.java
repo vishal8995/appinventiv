@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -74,9 +74,17 @@ class AppinventivApplicationTests {
                 service.deleteMovie(movie.getId()));
     }
 
+    @Test
     public void updateMovieTest(){
 
+        Movie movie = new Movie(4, "Swades", "Fiction - Revelation", (float) 4.5);
+        Movie existingMovie = new Movie(4, "Zindagi Milegi Na Dobara", "Life", (float) 3.3);
 
+        when(repository.findById(movie.getId())).thenReturn(Optional.of(existingMovie));
+        existingMovie.setTitle(movie.getTitle());
+        existingMovie.setCategory(movie.getCategory());
+        existingMovie.setRating(movie.getRating());
+        assertEquals(existingMovie, service.createMovie(existingMovie));
     }
 
 }
