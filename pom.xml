@@ -94,6 +94,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>appinventiv</finalName>
     </build>
 
 </project>
