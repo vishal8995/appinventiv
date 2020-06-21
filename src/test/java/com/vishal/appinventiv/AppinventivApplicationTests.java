@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -43,9 +43,9 @@ class AppinventivApplicationTests {
     public void getMovieTest(){
 
         int id=1;
-        when(repository.findById(id)).thenReturn(
-                Optional.of(new Movie(1, "Sherlock", "Web Series", 4)));
-        assertEquals(new Movie(1, "Sherlock", "Web Series", 4), service.getMovie(id));
+        Movie movie = new Movie(1, "Sherlock", "Web Series", 4);
+        when(repository.findById(id)).thenReturn(Optional.of(movie));
+        assertEquals(movie, service.getMovie(id));
     }
 
     @Test
@@ -80,16 +80,11 @@ class AppinventivApplicationTests {
     public void updateMovieTest(){
 
         Movie movie = new Movie(4, "Swades", "Fiction - Revelation", (float) 4.5);
-        Movie existingMovie = new Movie(4, "Zindagi Milegi Na Dobara", "Life", (float) 3.3);
+        int id = 4;
 
-        when(repository.findById(movie.getId())).thenReturn(Optional.of(existingMovie));
-        existingMovie.setTitle(movie.getTitle());
-        existingMovie.setCategory(movie.getCategory());
-        existingMovie.setRating(movie.getRating());
-
-        assertEquals(null, service.updateMovie(existingMovie));
-
-
+        when(repository.findById(movie.getId())).thenReturn(Optional.of(movie));
+        when(repository.save(movie)).thenReturn(movie);
+        assertEquals(movie, service.updateMovie(movie));
     }
 
 }
