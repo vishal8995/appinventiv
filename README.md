@@ -93,6 +93,7 @@ File: AppinventivApplicationTests.java
 ** Test Cases are written using innate Spring Boot dependencies, no external dependencies were used
 
 ** Dockerisation of the Application is possible, it is not a difficult process yet time consuming.
-    Given my current knowledge about Dockerisation (Docker File & docker-compose.yml) is a promised value.
+    Given my current knowledge about Dockerisation (Docker File & docker-compose.yml), the same is a promised
+    with more time at my disposal.
     
     
