@@ -79,8 +79,14 @@ There are 6 services:
         DELETE          : localhost:8080/delete/1
         
         
-        
-The Test Cases are written for the Service Layer, present within the "AppinventivApplicationTests" file
+========================================================================================================
+TEST CASES:
+
+The JUnit Test Cases for the Service(Business Logic) Layer are present inside :
+
+"src/main/test/java/com/vishal/appinventiv/"
+
+File: AppinventivApplicationTests.java
 
 ========================================================================================================
 
